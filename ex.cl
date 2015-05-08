@@ -1,5 +1,5 @@
 __kernel void
-proc (__global const float *a_g,
+proc (__global const float *t_g,
       __global float       *res_g)
 {
   int gid = get_global_id (0);
@@ -7,7 +7,7 @@ proc (__global const float *a_g,
   int N = 64;
   int c = 1;
   int m = 1;
-  int t = 1;
+  int t = t_g[gid];
   int j = 15;
   float wk;
   float wn = 2 * sqrt ((float) c / (float) m);
