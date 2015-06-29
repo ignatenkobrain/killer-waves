@@ -5,7 +5,7 @@ import pyopencl as cl
 
 class CL(object):
     def __init__(self):
-        t_np = np.arange(20000, 50000, dtype=np.float32)
+        t_np = np.arange(0, 100000000, dtype=np.float32)
 
         self.ctx = cl.create_some_context()
         self.queue = cl.CommandQueue(self.ctx)
@@ -29,6 +29,7 @@ class CL(object):
 
         # Check on CPU with Numpy:
         print(res_np)
+        print(np.amax(res_np))
 
 if __name__ == "__main__":
     cl = CL()
